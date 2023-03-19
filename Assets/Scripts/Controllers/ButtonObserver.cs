@@ -21,6 +21,9 @@ public class ButtonObserver : MonoBehaviour
     private Transform cameraTransform;
     [SerializeField] 
     private UIHelper uiHelper;
+    
+    [SerializeField] 
+    private CutSceneConfig startCutSceneConfig;
 
     private void Start()
     {
@@ -50,6 +53,8 @@ public class ButtonObserver : MonoBehaviour
             
             yield return null;
         }
+        
+        CutSceneController.OnStartCutScene?.Invoke(startCutSceneConfig.GetConfigCutScene);
     }
     
     /*private IEnumerator CheckMenuAlpha()
