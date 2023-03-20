@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,6 +16,7 @@ public class ButtonObserver : MonoBehaviour
     
     
     //Надо будет поменять
+    [Space]
     [SerializeField] 
     private CanvasGroup menuCanvas;
     [SerializeField] 
@@ -24,6 +26,14 @@ public class ButtonObserver : MonoBehaviour
     
     [SerializeField] 
     private CutSceneConfig startCutSceneConfig;
+    
+    [Space]
+    [SerializeField] 
+    private GameObject CinemachineConfiner;
+    
+    [Space]
+    [SerializeField] 
+    private GameObject clickBlocker;
 
     private void Start()
     {
@@ -36,12 +46,14 @@ public class ButtonObserver : MonoBehaviour
 
     private void Play()
     {
-        UIHelper.hideCanvasEvent?.Invoke(menuCanvas, null);
+        UIHelper.hideCanvasEvent?.Invoke(menuCanvas, menuCanvas.gameObject);
         StartCoroutine(CameraMove());
     }
 
     private IEnumerator CameraMove()
     {
+        clickBlocker.SetActive(true);
+        
         var pos = cameraTransform.position;
         var distance = 0f;
         
@@ -54,6 +66,9 @@ public class ButtonObserver : MonoBehaviour
             yield return null;
         }
         
+        clickBlocker.SetActive(false);
+
+        CinemachineConfiner.GetComponent<CinemachineConfiner>().enabled = true;
         CutSceneController.OnStartCutScene?.Invoke(startCutSceneConfig.GetConfigCutScene);
     }
     
