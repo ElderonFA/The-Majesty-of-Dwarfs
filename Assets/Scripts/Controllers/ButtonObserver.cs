@@ -69,7 +69,7 @@ public class ButtonObserver : MonoBehaviour
         clickBlocker.SetActive(false);
 
         CinemachineConfiner.GetComponent<CinemachineConfiner>().enabled = true;
-        CutSceneController.OnStartCutScene?.Invoke(startCutSceneConfig.GetConfigCutScene);
+        //CutSceneController.OnStartCutScene?.Invoke(startCutSceneConfig.GetConfigCutScene);
     }
     
     /*private IEnumerator CheckMenuAlpha()

@@ -159,7 +159,7 @@ public class PlayerController : MonoBehaviour
         if (!onGround)
             return;
 
-        if (Input.GetMouseButtonDown(0))
+        /*if (Input.GetMouseButtonDown(0))
         {
             if (anim.GetCurrentAnimatorStateInfo(0).IsName("attack1"))
             {
@@ -171,7 +171,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        /*if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1))
             Debug.Log("Pressed secondary button.");*/
     }
 
