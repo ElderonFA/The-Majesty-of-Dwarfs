@@ -1,8 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class InteractableObject : MonoBehaviour
 {
@@ -25,5 +22,15 @@ public class InteractableObject : MonoBehaviour
     public virtual void DoInteract()
     {
         Debug.Log("Interact with object!");
+    }
+
+    public virtual void OffInteractable()
+    {
+        isInteractable = false;
+    }
+    
+    public virtual void OnInteractable()
+    {
+        isInteractable = true;
     }
 }
