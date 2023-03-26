@@ -99,7 +99,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.465}
+  m_Offset: {x: 0, y: 0.31}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -110,7 +110,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.61, y: 0.93}
+  m_Size: {x: 0.3, y: 0.62}
   m_EdgeRadius: 0
 --- !u!114 &1194486477926348407
 MonoBehaviour:
@@ -127,5 +127,11 @@ MonoBehaviour:
   isInteractable: 1
   type: 0
   spriteRenderer: {fileID: 1194486477926348404}
-  cutTreeSprite: {fileID: -1343216777, guid: 3ed49d25a248a924e995966b1ecfaa1a, type: 3}
+  boxCollider: {fileID: 1194486477926348406}
+  initialSprite: {fileID: 692242509, guid: 3ed49d25a248a924e995966b1ecfaa1a, type: 3}
+  stumpSprite: {fileID: -1343216777, guid: 3ed49d25a248a924e995966b1ecfaa1a, type: 3}
+  treeFallSound: {fileID: 8300000, guid: 1bfd4bfb9ee4a01469b86cc793c067e6, type: 3}
+  treeCutSound: {fileID: 8300000, guid: 0261bec9ea1604d45aeb9db32557e6b6, type: 3}
   backLayerPos: 15
+  frontLayerPos: 25
+  blackFactor: 0.75

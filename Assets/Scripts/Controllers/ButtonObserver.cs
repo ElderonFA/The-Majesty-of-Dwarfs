@@ -35,6 +35,8 @@ public class ButtonObserver : MonoBehaviour
     [SerializeField] 
     private GameObject clickBlocker;
 
+    public static Action startGame;
+
     private void Start()
     {
         uiHelper.Initialize();
@@ -48,6 +50,8 @@ public class ButtonObserver : MonoBehaviour
     {
         UIHelper.hideCanvasEvent?.Invoke(menuCanvas, menuCanvas.gameObject);
         StartCoroutine(CameraMove());
+        
+        startGame?.Invoke();
     }
 
     private IEnumerator CameraMove()
@@ -69,7 +73,7 @@ public class ButtonObserver : MonoBehaviour
         clickBlocker.SetActive(false);
 
         CinemachineConfiner.GetComponent<CinemachineConfiner>().enabled = true;
-        //CutSceneController.OnStartCutScene?.Invoke(startCutSceneConfig.GetConfigCutScene);
+        CutSceneController.OnStartCutScene?.Invoke(startCutSceneConfig.GetConfigCutScene);
     }
     
     /*private IEnumerator CheckMenuAlpha()

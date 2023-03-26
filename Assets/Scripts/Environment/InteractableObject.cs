@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class InteractableObject : MonoBehaviour
@@ -17,6 +18,8 @@ public class InteractableObject : MonoBehaviour
     private void Start()
     {
         InteractEvent += DoInteract;
+        
+        CustomStart();
     }
 
     public virtual void DoInteract()
@@ -29,8 +32,18 @@ public class InteractableObject : MonoBehaviour
         isInteractable = false;
     }
     
-    public virtual void OnInteractable()
+    public virtual void OnInteractable(bool onWithAnim = false)
     {
         isInteractable = true;
+    }
+    
+    public virtual void CustomStart()
+    {
+        //Здесь допы для старта
+    }
+
+    private void OnDestroy()
+    {
+        InteractEvent -= DoInteract;
     }
 }

@@ -12,9 +12,8 @@ public class InteractableObjectButton : MonoBehaviour
 
     private Action interactEvent;
 
-    private void OnMouseUp()
+    private void OnMouseDown()
     {
-        Debug.Log("Button click");
         interactEvent?.Invoke();
 
         InteractionController.onInteractConfirm?.Invoke();
